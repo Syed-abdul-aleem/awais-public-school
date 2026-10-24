@@ -1,0 +1,4 @@
+# Deployment
+External services needing accounts: Postgres host (Neon/Supabase/Railway), server host (Render/Railway/VPS with HTTPS), frontend host (Vercel/Netlify), domain (optional).
+Steps: 1) Provision Postgres, set DATABASE_URL (postgresql://...), change Prisma provider to postgresql in schema.prisma, run `npx prisma migrate deploy`. 2) Server: env JWT_SECRET (long random), CORS_ORIGIN=https://your-frontend, PORT. Start `node src/index.js`. 3) Client: VITE_API_URL=https://api.example.com/api, `npm run build`, deploy dist.
+Limitations: Photo upload UI uses photoUrl field (store files in S3-compatible storage in production — endpoint auth already required; do not store photos in repo). SMS/WhatsApp notifications are an interface stub — add provider (e.g. Twilio) credentials to enable. No fabricated deployment is claimed; this repo was verified locally only.

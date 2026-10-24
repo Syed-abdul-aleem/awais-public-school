@@ -1,0 +1,1 @@
+-- Canonical SQL schema is created by server/src/db.js (SQLite). Same tables port 1:1 to PostgreSQL: replace INTEGER PRIMARY KEY AUTOINCREMENT with SERIAL PRIMARY KEY, TEXT stays TEXT. See DEPLOYMENT.md.

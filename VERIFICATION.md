@@ -1,0 +1,6 @@
+# Verification — run locally 2026-10-25 (PKT)
+- Server unit tests: 3/3 pass (grade boundaries, fee balance incl. reversed payment ignored + discount/fine, attendance % present+late).
+- Seed: 1 school, 10 classes, 30 fictional students, 5 users (Super/Principal/Accountant/Teacher/Parent), fee charges, attendance for today, 1 published exam with 5 subjects + marks.
+- API smoke (live server): admin/parent/accountant login OK; dashboard students=30, present=26, absent=4, collected Rs 10,000 (before test payment); parent /users = 403; parent students = only 3 linked children; parent fee charges = only studentIds 1,2,3; payment Rs 500 created receipt APS-000011; overpayment blocked 400; marks > max blocked 400; no-token = 401; report card student 1: 390/500, 78%, Grade B, Pass.
+- Client: `npm run build` succeeds (TypeScript + Vite). Preview served on VM :5173 and page HTML + API health verified by direct HTTP calls on the VM. The separate browser-agent environment cannot reach the VM's loopback, so no browser screenshot is claimed.
+- Not done / honest limits: No public deployment was performed (no hosting credentials supplied). Photo upload stores a photoUrl only (use S3 in production). SMS/WhatsApp notifications not integrated (no provider account). Postgres port is documented, local verified DB is SQLite.

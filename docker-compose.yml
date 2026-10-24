@@ -1,0 +1,7 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment: {POSTGRES_DB: awais, POSTGRES_USER: awais, POSTGRES_PASSWORD: awais}
+    ports: ['5432:5432']
+    volumes: [pgdata:/var/lib/postgresql/data]
+volumes: {pgdata: {}}

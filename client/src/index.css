@@ -1,0 +1,8 @@
+@import "tailwindcss";
+@theme{ --color-navy:#123332; --color-navy2:#1B4D4A; --color-cream:#FAF7F0; --color-sand:#F1EAD9; --color-gold:#C5962B; --color-ink:#1E2A28; --font-display:"Fraunces",serif; --font-body:"Inter",system-ui,sans-serif; }
+*{scrollbar-width:thin} body{background:#FAF7F0;color:#1E2A28;font-family:Inter,system-ui,sans-serif}
+.fade-in{animation:fade .35s ease both} @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.slide-in{animation:slide .28s ease both} @keyframes slide{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:none}}
+.skeleton{background:linear-gradient(90deg,#eee 25%,#f7f7f7 50%,#eee 75%);background-size:200% 100%;animation:sk 1.2s infinite;border-radius:8px} @keyframes sk{to{background-position:-200% 0}}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+@media print{ .no-print{display:none!important} body{background:white} .print-area{box-shadow:none!important;border:none!important} }
