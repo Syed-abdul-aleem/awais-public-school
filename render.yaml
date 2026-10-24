@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: awais-public-school-api
+    env: node
+    plan: free
+    region: singapore
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm run seed && node src/index.js
+    healthCheckPath: /api/health
+    envVars:
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CORS_ORIGIN
+        value: https://awais-public-school.vercel.app
+      - key: NODE_ENV
+        value: production
