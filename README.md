@@ -33,3 +33,11 @@ SQLite: copy server/prisma/dev.db. Postgres: `pg_dump $DATABASE_URL > backup.sql
 
 ## Deploy
 Vercel (client) + Render/Railway/VPS (server) + Neon/Supabase Postgres. Set VITE_API_URL, DATABASE_URL, JWT_SECRET, CORS_ORIGIN. HTTPS enforced at host.
+
+## v2 (Oct 2026) — what's new
+- **Staff & Salaries module:** staff records (teachers + support staff), monthly payroll with deductions, partial payments, salary receipts (SAL-000001…), reversal-with-reason, payroll totals. Admin/Accountant access only.
+- **Parent details everywhere:** full student profile (guardian + linked parent portal accounts, attendance %, fee summary), guardian shown on fee table, fee receipts and printable report cards.
+- **Fixed & completed screens:** Classes page can now add sections and subjects; Exams has a proper marks-entry grid (pick exam → add subjects → pick student → type marks → report card); Students can be promoted from their profile. Login no longer pre-fills any password.
+- **Fully responsive theme:** mobile sidebar with backdrop, bottom-sheet student profile, tables scroll inside their cards, phone-friendly forms.
+- **Permanent database option:** set `DATABASE_URL` (Supabase/Postgres) and the server uses it automatically — all tables are created on first start. Without it, the built-in SQL file is used (demo mode). **Full steps: see `SUPABASE_GUIDE.md`.**
+- Security: production mode refuses to start without a strong `JWT_SECRET`; API-wide rate limiting added on top of the login limit.

@@ -6,3 +6,9 @@
 .skeleton{background:linear-gradient(90deg,#eee 25%,#f7f7f7 50%,#eee 75%);background-size:200% 100%;animation:sk 1.2s infinite;border-radius:8px} @keyframes sk{to{background-position:-200% 0}}
 @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
 @media print{ .no-print{display:none!important} body{background:white} .print-area{box-shadow:none!important;border:none!important} }
+
+/* v2 responsive polish: no horizontal page scroll, comfortable tap targets, tables scroll inside cards */
+html{-webkit-text-size-adjust:100%}
+body{overflow-x:hidden}
+button{-webkit-tap-highlight-color:transparent}
+@media (max-width:768px){ input,select,textarea{font-size:16px!important} }
